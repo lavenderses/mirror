@@ -1,17 +1,13 @@
 scheduler:
   evaluationInterval: PT1S
 
-worker: {}
-
-api: {}
-
 workflows:
   workflows:
     - id: literal-workflow
       name: this is literal workflow
-      entrypoint:
+      entryPoint:
         trigger:
-          kind: com.github.lavenderses.work.domain.model.trigger.DependingTaskCompletedTrigger
+          kind: com.github.lavenderses.work.domain.model.trigger.DependingTasksCompletedTrigger
           metadata: {}
         follows:
           - job-1
@@ -24,7 +20,7 @@ workflows:
             - job-2
           retry: 0
           trigger:
-            kind: com.github.lavenderses.work.domain.model.trigger.DependingTaskCompletedTrigger
+            kind: com.github.lavenderses.work.domain.model.trigger.DependingTasksCompletedTrigger
             metadata: {}
           metadata: {}
 
@@ -34,7 +30,7 @@ workflows:
           follows: []
           retry: 0
           trigger:
-            kind: com.github.lavenderses.work.domain.model.trigger.DependingTaskCompletedTrigger
+            kind: com.github.lavenderses.work.domain.model.trigger.DependingTasksCompletedTrigger
             metadata: {}
           metadata: {}
 
@@ -45,7 +41,7 @@ workflows:
             - job-4
           retry: 0
           trigger:
-            kind: com.github.lavenderses.work.domain.model.trigger.DependingTaskCompletedTrigger
+            kind: com.github.lavenderses.work.domain.model.trigger.DependingTasksCompletedTrigger
             metadata: {}
           metadata: {}
 
@@ -55,10 +51,9 @@ workflows:
           follows: []
           retry: 0
           trigger:
-            kind: com.github.lavenderses.work.domain.model.trigger.DependingTaskCompletedTrigger
+            kind: com.github.lavenderses.work.domain.model.trigger.DependingTasksCompletedTrigger
             metadata: {}
           metadata: {}
 
   imports:
     - templates/echo.yaml
-
