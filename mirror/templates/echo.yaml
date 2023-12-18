@@ -1,0 +1,43 @@
+id: import-workflow
+
+name: This is imported workflow
+
+entrypoint:
+  trigger:
+    kind: com.github.lavenderses.work.domain.model.trigger.DependingTaskCompletedTrigger
+    metadata: {}
+  follows:
+    - job-1
+    - job-3
+
+jobs:
+  - id: job-1
+    name: echo 1
+    kind: com.github.lavenderses.work.domain.model.job.EchoJob
+    follows:
+      - job-2
+    retry: 0
+    metadata: {}
+
+  - id: job-2
+    name: echo 2
+    kind: com.github.lavenderses.work.domain.model.job.EchoJob
+    follows: []
+    retry: 0
+    metadata: {}
+
+  - id: job-3
+    name: echo 3
+    kind: com.github.lavenderses.work.domain.model.job.EchoJob
+    follows:
+      - job-4
+    retry: 0
+    metadata: {}
+
+  - id: job-4
+    name: echo 4
+    kind: com.github.lavenderses.work.domain.model.job.EchoJob
+    follows: []
+    retry: 0
+    metadata: {}
+
