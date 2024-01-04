@@ -1,6 +1,11 @@
 scheduler:
   evaluationInterval: PT1S
 
+worker:
+  connections:
+    - hostname: localhost
+      port: 28282
+
 workflows:
   workflows:
     - id: literal-workflow
